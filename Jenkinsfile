@@ -17,8 +17,9 @@ pipeline {
         sh """#!/bin/bash
            tar -cvzf holly.zip hollywood
         """
-      }
         archiveArtifacts artifacts: "*.zip"
+        
+      }
     }
   }
 }
