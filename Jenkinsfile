@@ -1,4 +1,8 @@
 pipeline {
+    
+  parameters {
+    booleanParam(name: 'SAVE', defaultValue: false)
+  }
 
   agent {
     label 'master'
@@ -18,7 +22,12 @@ pipeline {
            tar -cvzf holly.zip hollywood
         """
         archiveArtifacts artifacts: "*.zip"
-        
+    stage('save'){
+      when { expression { return params.SAVE } }
+      steps {
+        sh """#/bin/bash
+           echo "saving done"
+        """              
       }
     }
   }
