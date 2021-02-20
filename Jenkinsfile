@@ -18,7 +18,7 @@ pipeline {
            tar -cvzf holly.zip hollywood
         """
       }
-      archiveArtifacts artifacts: "*.zip"
+        archiveArtifacts artifacts: "*.zip"
     }
   }
 }
