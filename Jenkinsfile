@@ -22,6 +22,8 @@ pipeline {
            tar -cvzf holly.zip hollywood
         """
         archiveArtifacts artifacts: "*.zip"
+      }
+    }
     stage('save'){
       when { expression { return params.SAVE } }
       steps {
